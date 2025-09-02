@@ -1,4 +1,4 @@
-# (LL) PA01 - HTML Skelton
+# (LL) PA01 - HTML Skeleton
 <!DOCTYPE html>
 <html>
   <h1> About Me! </h1>
