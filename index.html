@@ -1,112 +1,102 @@
-<!DOCTYPE html>
-<html>
-  <h1> About Me! </h1>
-<body> 
-  <p> Hello all! My name is Lleyton Leonard and welcome to my notebook. I am a 4th year computer science student from Stone Mountain, Georgia. I enjoy reading, running, playing video games, and 3D modeling in Unity/Blender. Through this course I hope gain more practical coding experience in Java and broaden my skillset.  </p>
-  
-  <form>
-      <div>
-            <label for="first_name">First Name:</label><br>
-            <input type="text" id="first_name" name="first_name"><br><br>
-        </div>
-
-        <div>
-            <label for="last_name">Last Name:</label><br>
-            <input type="text" id="last_name" name="last_name"><br><br>
-        </div>
-
-        <div>
-            <label for="email">Email:</label><br>
-            <input type="email" id="email" name="email"><br><br>
-        </div>
-
-        <div>
-            <label for="password">Password:</label><br>
-            <input type="password" id="password" name="password"><br><br>
-        </div>
-
-        <div>
-            <p>Preferred Contact Method:</p>
-            <input type="radio" id="email_contact" name="contact_method" value="email">
-            <label for="email_contact">Email</label><br>
-            <input type="radio" id="phone_contact" name="contact_method" value="phone">
-            <label for="phone_contact">Phone</label><br><br>
-        </div>
-
-        <div>
-            <input type="checkbox" id="agree_terms" name="agree_terms" value="yes">
-            <label for="agree_terms">I agree to the terms and conditions</label><br><br>
-        </div>
-
-        <div>
-            <label for="country">Country:</label><br>
-            <select id="country" name="country">
-                <option value="usa">USA</option>
-                <option value="canada">Canada</option>
-                <option value="mexico">Mexico</option>
-            </select><br><br>
-        </div>
-        <button type="submit">Submit</button>
-    </form>
-
+<h1>About Me!</h1>
+<p>Hello all! My name is Lleyton Leonard and welcome to my notebook. I am a 4th year computer science student from Stone Mountain, Georgia. I enjoy reading, running, playing video games, and 3D modeling in Unity/Blender. Through this course I hope gain more practical coding experience in Java and broaden my skillset.</p>
+<form>
+  <div>
+    <label for="first_name">First Name:</label><br>
+    <input type="text" id="first_name" name="first_name"><br>
     <br>
-
-    <h2>Favorite Movies</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Genre</th>
-                <th>Year</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Inception</td>
-                <td>Sci-Fi</td>
-                <td>2010</td>
-            </tr>
-            <tr>
-                <td>The Matrix</td>
-                <td>Sci-Fi</td>
-                <td>1999</td>
-            </tr>
-            <tr>
-                <td>Parasite</td>
-                <td>Drama</td>
-                <td>2019</td>
-            </tr>
-        </tbody>
-    </table>
-
+  </div>
+  <div>
+    <label for="last_name">Last Name:</label><br>
+    <input type="text" id="last_name" name="last_name"><br>
     <br>
-
-    <h2>Sample Roster</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Student ID</th>
-                <th>Name</th>
-                <th>Major</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>101</td>
-                <td>Alice Smith</td>
-                <td>Computer Science</td>
-            </tr>
-            <tr>
-                <td>102</td>
-                <td>Bob Johnson</td>
-                <td>Engineering</td>
-            </tr>
-            <tr>
-                <td>103</td>
-                <td>Charlie Brown</td>
-                <td>History</td>
-            </tr>
-        </tbody>
-    </table>
-</body>
-</html>
+  </div>
+  <div>
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email"><br>
+    <br>
+  </div>
+  <div>
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password"><br>
+    <br>
+  </div>
+  <div>
+    <p>Preferred Contact Method:</p><input type="radio" id="email_contact" name="contact_method" value="email"> <label for="email_contact">Email</label><br>
+    <input type="radio" id="phone_contact" name="contact_method" value="phone"> <label for="phone_contact">Phone</label><br>
+    <br>
+  </div>
+  <div>
+    <input type="checkbox" id="agree_terms" name="agree_terms" value="yes"> <label for="agree_terms">I agree to the terms and conditions</label><br>
+    <br>
+  </div>
+  <div>
+    <label for="country">Country:</label><br>
+    <select id="country" name="country">
+      <option value="usa">
+        USA
+      </option>
+      <option value="canada">
+        Canada
+      </option>
+      <option value="mexico">
+        Mexico
+      </option>
+    </select><br>
+    <br>
+  </div><button type="submit">Submit</button>
+</form><br>
+<h2>Favorite Movies</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Genre</th>
+      <th>Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Inception</td>
+      <td>Sci-Fi</td>
+      <td>2010</td>
+    </tr>
+    <tr>
+      <td>The Matrix</td>
+      <td>Sci-Fi</td>
+      <td>1999</td>
+    </tr>
+    <tr>
+      <td>Parasite</td>
+      <td>Drama</td>
+      <td>2019</td>
+    </tr>
+  </tbody>
+</table><br>
+<h2>Sample Roster</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Student ID</th>
+      <th>Name</th>
+      <th>Major</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>101</td>
+      <td>Alice Smith</td>
+      <td>Computer Science</td>
+    </tr>
+    <tr>
+      <td>102</td>
+      <td>Bob Johnson</td>
+      <td>Engineering</td>
+    </tr>
+    <tr>
+      <td>103</td>
+      <td>Charlie Brown</td>
+      <td>History</td>
+    </tr>
+  </tbody>
+</table>
