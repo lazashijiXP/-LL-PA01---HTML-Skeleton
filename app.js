@@ -19,7 +19,7 @@
   console.log("Null variable:", myNull);
   console.log("Undefined variable:", myUndefined);
 
-  //Operator demonstrations
+  // Operator demonstrations
   let resultArithmetic = myNumber * 2;
   console.log("Arithmetic operation (myNumber * 2):", resultArithmetic);
 
@@ -29,22 +29,44 @@
   let resultLogical = myBoolean && (myArray.length > 0);
   console.log("Logical operation (myBoolean && (myArray.length > 0)):", resultLogical);
 
-  //Input Validations
+  // Event Listener for form submission
   const form = document.getElementById('myForm');
   const emailInput = document.getElementById('email');
+  const firstNameInput = document.getElementById('first_name');
+  const lastNameInput = document.getElementById('last_name');
+  const countrySelect = document.getElementById('country');
   const validationFeedback = document.getElementById('validation-feedback');
 
-    form.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent default form submission
+  form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent default form submission
 
-        const emailValue = emailInput.value;
+      // Email validation
+      const emailValue = emailInput.value;
 
-        if (emailValue === '') {
-            validationFeedback.textContent = 'Email field cannot be empty. (Fail)';
-            validationFeedback.style.color = 'red';
-        } else {
-            validationFeedback.textContent = 'Email field is not empty. (Pass)';
-            validationFeedback.style.color = 'green';
-        }
-    });
+      if (emailValue === '') {
+          validationFeedback.textContent = 'Email field cannot be empty. (Fail)';
+          validationFeedback.style.color = 'red';
+      } else {
+          validationFeedback.textContent = 'Email field is not empty. (Pass)';
+          validationFeedback.style.color = 'green';
+      }
+
+      // Retrieves other input values
+      const firstNameValue = firstNameInput.value;
+      const lastNameValue = lastNameInput.value;
+      const countryValue = countrySelect.value;
+
+      // Conditional check based on country and update DOM
+      const countryFeedback = document.createElement('p'); // Create a new paragraph element
+      if (countryValue === 'usa') {
+          countryFeedback.textContent = `Welcome, ${firstNameValue} from USA!`;
+          countryFeedback.style.color = 'blue';
+      } else {
+          countryFeedback.textContent = `Hello, ${firstNameValue} from another country (${countryValue}).`;
+          countryFeedback.style.color = 'orange';
+      }
+
+      // Append the feedback message to the validation feedback div
+      validationFeedback.appendChild(countryFeedback);
+  });
 })();
