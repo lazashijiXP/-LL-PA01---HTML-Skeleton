@@ -28,4 +28,23 @@
 
   let resultLogical = myBoolean && (myArray.length > 0);
   console.log("Logical operation (myBoolean && (myArray.length > 0)):", resultLogical);
+
+  //Input Validations
+  const form = document.getElementById('myForm');
+  const emailInput = document.getElementById('email');
+  const validationFeedback = document.getElementById('validation-feedback');
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        const emailValue = emailInput.value;
+
+        if (emailValue === '') {
+            validationFeedback.textContent = 'Email field cannot be empty. (Fail)';
+            validationFeedback.style.color = 'red';
+        } else {
+            validationFeedback.textContent = 'Email field is not empty. (Pass)';
+            validationFeedback.style.color = 'green';
+        }
+    });
 })();
