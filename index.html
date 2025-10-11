@@ -107,9 +107,19 @@
       </tr>
     </tbody>
   </table>
+  <button id="fetch-data-button">Fetch Public Data</button>
+
+  <div id="data-controls" style="display: none;">
+      <label for="sort-by">Sort by:</label>
+      <select id="sort-by">
+          <option value="id">ID</option>
+          <option value="title">Title</option>
+      </select>
+  </div>
+
+  <div id="data-container"></div>
   <script src="app.js" defer></script>
 </body>  
-  
 
 </html>
   
