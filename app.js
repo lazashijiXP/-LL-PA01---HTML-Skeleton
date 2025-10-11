@@ -131,5 +131,4 @@
 
         renderData(sortedData); // Render sorted data
     });
-
 })();
