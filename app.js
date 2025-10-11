@@ -6,7 +6,7 @@
     let myArray = [1, 2, 3, 4, 5];
     let myObject = { name: "AI", type: "Assistant" };
     let myNull = null;
-    let myUndefined;
+    let myUndefined; // Declared but not assigned, defaults to undefined
 
     console.log("String variable:", myString);
     console.log("Number variable:", myNumber);
@@ -26,18 +26,25 @@
     let resultLogical = myBoolean && (myArray.length > 0); // Logical operator (&&)
     console.log("Logical operation (myBoolean && (myArray.length > 0)):", resultLogical);
 
-    // Event Listener for form submission (retained)
+    // DOM Elements
     const form = document.getElementById('myForm');
     const emailInput = document.getElementById('email');
     const firstNameInput = document.getElementById('first_name');
     const lastNameInput = document.getElementById('last_name');
     const countrySelect = document.getElementById('country');
     const validationFeedback = document.getElementById('validation-feedback');
+    const fetchDataButton = document.getElementById('fetch-data-button');
+    const dataContainer = document.getElementById('data-container');
+    const dataControls = document.getElementById('data-controls');
+    const sortBySelect = document.getElementById('sort-by');
+    const apiUrl = 'https://jsonplaceholder.typicode.com/posts'; // Approved public API
+    let fetchedData = []; // Variable to store fetched data
 
-    form.addEventListener('submit', function(event) {
+    // Function to handle form submission and validation
+    function handleFormSubmit(event) {
         event.preventDefault(); // Prevent default form submission
 
-        // Email validation (retained)
+        // Email validation
         const emailValue = emailInput.value;
         if (emailValue === '') {
             validationFeedback.textContent = 'Email field cannot be empty. (Fail)';
@@ -47,12 +54,12 @@
             validationFeedback.style.color = 'green';
         }
 
-        // Retrieve other input values (retained)
+        // Retrieve other input values
         const firstNameValue = firstNameInput.value;
         const lastNameValue = lastNameInput.value;
         const countryValue = countrySelect.value;
 
-        // Conditional check based on country and update DOM (retained)
+        // Conditional check based on country and update DOM
         const countryFeedback = document.createElement('p'); // Create a new paragraph element
         if (countryValue === 'usa') {
             countryFeedback.textContent = `Welcome, ${firstNameValue} from USA!`;
@@ -62,17 +69,14 @@
             countryFeedback.style.color = 'orange';
         }
 
-        // Append the feedback message to the validation feedback div (retained)
+        // Append the feedback message to the validation feedback div
+        // Clear previous country feedback first if any
+        const existingCountryFeedback = validationFeedback.querySelector('p');
+        if (existingCountryFeedback) {
+            validationFeedback.removeChild(existingCountryFeedback);
+        }
         validationFeedback.appendChild(countryFeedback);
-    });
-
-    // API Fetch and Render
-    const fetchDataButton = document.getElementById('fetch-data-button');
-    const dataContainer = document.getElementById('data-container');
-    const dataControls = document.getElementById('data-controls');
-    const sortBySelect = document.getElementById('sort-by');
-    const apiUrl = 'https://jsonplaceholder.typicode.com/posts'; // Approved public API
-    let fetchedData = []; // Variable to store fetched data
+    }
 
     // Function to render data
     function renderData(dataToRender) {
@@ -98,8 +102,9 @@
         console.error('Fetch error:', error);
     }
 
-    fetchDataButton.addEventListener('click', function() {
-        // Show loading message
+    // Function to fetch and render data
+    function fetchAndRenderData() {
+         // Show loading message
         dataContainer.innerHTML = 'Loading data...';
         dataControls.style.display = 'none'; // Hide controls while loading
 
@@ -111,15 +116,15 @@
                 return response.json();
             })
             .then(data => {
-                fetchedData = data; // Store fetched data
+                fetchedData = data; // Store fetched data globally
                 renderData(fetchedData); // Render initial data
                 dataControls.style.display = 'block'; // Show controls after data is loaded
             })
             .catch(handleError); // Use the error handling function
-    });
+    }
 
-    // Event Listener for sort control
-    sortBySelect.addEventListener('change', function() {
+    // Function to handle sorting
+    function handleSortChange() {
         const sortBy = this.value;
         let sortedData = [...fetchedData]; // Create a copy to avoid modifying the original
 
@@ -130,5 +135,10 @@
         }
 
         renderData(sortedData); // Render sorted data
-    });
+    }
+
+    // Event Listeners
+    form.addEventListener('submit', handleFormSubmit);
+    fetchDataButton.addEventListener('click', fetchAndRenderData);
+    sortBySelect.addEventListener('change', handleSortChange);
 })();
